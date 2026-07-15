@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny catch-all: no direct client access.
+    // All database reads and writes must go through our secure Express API server.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
